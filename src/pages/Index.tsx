@@ -51,31 +51,23 @@ const Index = () => {
         <div className="max-w-4xl mx-auto space-y-8">
           {/* Header */}
           <div className="text-center space-y-6">
-            {/* Top Bar - Admin and Feedback */}
-            <div className="flex justify-between items-center">
-              {/* Admin Panel Toggle */}
-              <div className="flex items-center gap-2">
-                {isAdmin && (
-                  <>
-                    <div className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">
-                      Admin
-                    </div>
-                    <Button
-                      onClick={() => setShowAdminPanel(!showAdminPanel)}
-                      variant="outline"
-                      size="sm"
-                      className="text-xs"
-                    >
-                      <Settings className="h-3 w-3 mr-1" />
-                      {showAdminPanel ? 'Hide Panel' : 'Admin Panel'}
-                    </Button>
-                  </>
-                )}
+            {/* Top Bar - Admin Only */}
+            {isAdmin && (
+              <div className="flex justify-start items-center gap-2">
+                <div className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">
+                  Admin
+                </div>
+                <Button
+                  onClick={() => setShowAdminPanel(!showAdminPanel)}
+                  variant="outline"
+                  size="sm"
+                  className="text-xs"
+                >
+                  <Settings className="h-3 w-3 mr-1" />
+                  {showAdminPanel ? 'Hide Panel' : 'Admin Panel'}
+                </Button>
               </div>
-              
-              {/* Feedback Form */}
-              <FeedbackForm />
-            </div>
+            )}
 
             {/* Main Title */}
             <div className="space-y-4">

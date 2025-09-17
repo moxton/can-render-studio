@@ -122,7 +122,7 @@ export const AuthButton = () => {
         <Button
           onClick={handleSignIn}
           variant="outline"
-          className="px-4 py-2 border-purple-300 text-purple-700 hover:bg-purple-50"
+          className="px-4 py-2 border-purple-300 text-purple-700 hover:bg-purple-600 hover:text-white hover:border-purple-600 transition-all duration-200"
         >
           <LogIn className="h-4 w-4 mr-2" />
           Google
@@ -130,14 +130,14 @@ export const AuthButton = () => {
         <Button
           onClick={() => setShowMagicLink(true)}
           variant="outline"
-          className="px-4 py-2 border-purple-300 text-purple-700 hover:bg-purple-50"
+          className="px-4 py-2 border-purple-300 text-purple-700 hover:bg-purple-600 hover:text-white hover:border-purple-600 transition-all duration-200"
         >
           <Mail className="h-4 w-4 mr-2" />
           Email
         </Button>
       </div>
       <p className="text-xs text-gray-500 text-center">
-        Get 10 generations per day (vs 5 anonymous)
+        Sign in to get 10 generations per day
       </p>
     </div>
   );

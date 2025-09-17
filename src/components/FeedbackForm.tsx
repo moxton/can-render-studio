@@ -73,7 +73,7 @@ export const FeedbackForm: React.FC<FeedbackFormProps> = ({ variant = 'default' 
           onClick={() => setIsOpen(true)}
           variant="ghost"
           size="sm"
-          className="text-gray-500 hover:text-white hover:bg-purple-600 text-xs transition-colors duration-200"
+          className="text-white bg-purple-600 hover:bg-purple-700 text-xs transition-colors duration-200"
         >
           <MessageSquare className="w-4 h-4 mr-1" />
           Feedback
