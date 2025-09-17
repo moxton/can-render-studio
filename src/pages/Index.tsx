@@ -136,41 +136,7 @@ const Index = () => {
             />
           </div>
 
-          {/* Support Section */}
-          <SupportSection />
-
-          {/* Features */}
-          <div className="grid md:grid-cols-3 gap-6 mt-8">
-            <Card className="p-6 text-center bg-yellow-100 border border-gray-200 hover:border-gray-300 transition-colors">
-              <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Zap className="h-6 w-6 text-gray-600" />
-              </div>
-              <h3 className="font-semibold mb-2 text-gray-800">Lightning Fast</h3>
-              <p className="text-sm text-gray-600">
-                Generate professional renders in seconds
-              </p>
-            </Card>
-
-            <Card className="p-6 text-center bg-yellow-100 border border-gray-200 hover:border-gray-300 transition-colors">
-              <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Bot className="h-6 w-6 text-gray-600" />
-              </div>
-              <h3 className="font-semibold mb-2 text-gray-800">AI Powered</h3>
-              <p className="text-sm text-gray-600">
-                Advanced AI creates realistic, professional results
-              </p>
-            </Card>
-
-            <Card className="p-6 text-center bg-yellow-100 border border-gray-200 hover:border-gray-300 transition-colors">
-              <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Download className="h-6 w-6 text-gray-600" />
-              </div>
-              <h3 className="font-semibold mb-2 text-gray-800">Easy Export</h3>
-              <p className="text-sm text-gray-600">
-                Download or copy your renders instantly
-              </p>
-            </Card>
-          </div>
+          
         </div>
 
       </main>
