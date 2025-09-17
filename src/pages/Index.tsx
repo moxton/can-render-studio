@@ -141,7 +141,7 @@ const Index = () => {
 
           {/* Features */}
           <div className="grid md:grid-cols-3 gap-6 mt-8">
-            <Card className="p-6 text-center bg-white border border-gray-200 hover:border-gray-300 transition-colors">
+            <Card className="p-6 text-center bg-yellow-100 border border-gray-200 hover:border-gray-300 transition-colors">
               <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Zap className="h-6 w-6 text-gray-600" />
               </div>
@@ -151,7 +151,7 @@ const Index = () => {
               </p>
             </Card>
 
-            <Card className="p-6 text-center bg-white border border-gray-200 hover:border-gray-300 transition-colors">
+            <Card className="p-6 text-center bg-yellow-100 border border-gray-200 hover:border-gray-300 transition-colors">
               <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Bot className="h-6 w-6 text-gray-600" />
               </div>
@@ -161,7 +161,7 @@ const Index = () => {
               </p>
             </Card>
 
-            <Card className="p-6 text-center bg-white border border-gray-200 hover:border-gray-300 transition-colors">
+            <Card className="p-6 text-center bg-yellow-100 border border-gray-200 hover:border-gray-300 transition-colors">
               <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Download className="h-6 w-6 text-gray-600" />
               </div>
