@@ -1,6 +1,5 @@
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
-import { createHash } from "https://deno.land/std@0.168.0/hash/mod.ts"
+import { encodeHex } from "https://deno.land/std@0.224.0/encoding/hex.ts";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -37,10 +36,13 @@ function sanitizeFingerprint(fingerprint: string): string {
   return fingerprint.replace(/[^a-zA-Z0-9]/g, '').substring(0, MAX_FINGERPRINT_LENGTH)
 }
 
-function createSecureAnonymousId(ip: string, fingerprint: string): string {
+async function createSecureAnonymousId(ip: string, fingerprint: string): Promise<string> {
   const sanitizedFingerprint = sanitizeFingerprint(fingerprint)
   const combined = `${ip}:${sanitizedFingerprint}`
-  return createHash("sha256").update(combined).toString()
+  const messageBuffer = new TextEncoder().encode(combined);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", messageBuffer);
+  const hash = encodeHex(hashBuffer);
+  return hash;
 }
 
 function validateRequest(req: Request): { ip: string, isValid: boolean } {
@@ -54,7 +56,7 @@ function validateRequest(req: Request): { ip: string, isValid: boolean } {
   return { ip: clientIP, isValid }
 }
 
-serve(async (req) => {
+Deno.serve(async (req) => {
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders })
@@ -105,7 +107,7 @@ serve(async (req) => {
     }
 
     // Create secure anonymous identifier (hashed for privacy)
-    const anonymousId = createSecureAnonymousId(clientIP, fingerprint)
+    const anonymousId = await createSecureAnonymousId(clientIP, fingerprint)
     
     // Server-side limits - cannot be bypassed by client
     const maxGenerations = isAuthenticated ? AUTHENTICATED_DAILY_LIMIT : ANONYMOUS_DAILY_LIMIT
