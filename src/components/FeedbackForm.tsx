@@ -71,11 +71,12 @@ export const FeedbackForm: React.FC<FeedbackFormProps> = ({ variant = 'default' 
       return (
         <Button
           onClick={() => setIsOpen(true)}
-          variant="outline"
-          className="bg-white hover:bg-pink-50 text-pink-700 border-pink-300 hover:border-pink-400 shadow-md hover:shadow-lg transition-all duration-300"
+          variant="ghost"
+          size="sm"
+          className="text-gray-500 hover:text-white hover:bg-purple-600 text-xs transition-colors duration-200"
         >
-          <MessageSquare className="w-4 h-4 mr-2" />
-          Send Feedback
+          <MessageSquare className="w-4 h-4 mr-1" />
+          Feedback
         </Button>
       );
     }

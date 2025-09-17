@@ -121,7 +121,8 @@ export const AuthButton = () => {
       <div className="flex gap-2">
         <Button
           onClick={handleSignIn}
-          className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 py-2 shadow-lg hover:shadow-xl transition-all duration-300"
+          variant="outline"
+          className="px-4 py-2 border-purple-300 text-purple-700 hover:bg-purple-50"
         >
           <LogIn className="h-4 w-4 mr-2" />
           Google
