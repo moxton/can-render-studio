@@ -8,9 +8,14 @@ import { secureUsageService, SecureUsageStats } from "@/services/secureUsageServ
 import { AuthPrompt } from "@/components/AuthButton";
 export type CanSize = '12oz' | '16oz';
 
+export interface GenerateOptions {
+  canSize: CanSize;
+  avoidTextGeneration: boolean;
+}
+
 interface CanRendererProps {
   userImage: File | null;
-  onGenerate: (userImage: File, canSize: CanSize) => Promise<string>;
+  onGenerate: (userImage: File, options: GenerateOptions) => Promise<string>;
 }
 
 export const CanRenderer = ({ userImage, onGenerate }: CanRendererProps) => {
@@ -72,7 +77,11 @@ export const CanRenderer = ({ userImage, onGenerate }: CanRendererProps) => {
     let errorMessage: string | undefined;
 
     try {
-      const resultUrl = await onGenerate(userImage, selectedCanSize);
+      const options: GenerateOptions = {
+        canSize: selectedCanSize,
+        avoidTextGeneration: true, // Hardcoded as per user request
+      };
+      const resultUrl = await onGenerate(userImage, options);
       success = true;
       toast.success("Your can render is ready! 🎉");
     } catch (error) {

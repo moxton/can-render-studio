@@ -38,7 +38,15 @@ const loadCanReference = async (canSize: '12oz' | '16oz' = '16oz'): Promise<stri
   }
 };
 
-export const generateCanRender = async (userImage: File, canSize: '12oz' | '16oz' = '16oz'): Promise<string> => {
+
+interface GenerateCanRenderOptions {
+  canSize?: '12oz' | '16oz';
+  avoidTextGeneration?: boolean;
+}
+
+export const generateCanRender = async (userImage: File, options: GenerateCanRenderOptions = {}): Promise<string> => {
+  const { canSize = '16oz', avoidTextGeneration = false } = options;
+
   // SECURITY: Check rate limits before any processing
   const usageStats = await secureUsageService.checkUsageLimit();
   
@@ -79,7 +87,7 @@ export const generateCanRender = async (userImage: File, canSize: '12oz' | '16oz
       ? 'standard 12oz aluminum beverage can (shorter and wider proportions, approximately 4.83 inches tall)'
       : 'tall 16oz aluminum beverage can (taller and slimmer proportions, approximately 6.19 inches tall)';
 
-    const prompt = `Generate 3 product photography views of the same ${canSize} can in one image: Take the ${canSizeDescription} from the first image and apply the design/label from the second image onto it. Create a professional product photograph showing THREE different angles side by side:
+    let prompt = `Generate 3 product photography views of the same ${canSize} can in one image: Take the ${canSizeDescription} from the first image and apply the design/label from the second image onto it. Create a professional product photograph showing THREE different angles side by side:
 
 LEFT VIEW: ${canSize} can rotated 45 degrees left showing the left side of the label
 CENTER VIEW: ${canSize} can facing straight forward showing the main label design  
@@ -101,7 +109,14 @@ Requirements for all three views:
 - The label should conform to the can's cylindrical shape naturally
 - All three cans should be identical ${canSize} size and evenly spaced
 - Show how the label design wraps around the cylindrical surface
-- Output dimensions must be exactly 1200 pixels wide by 600 pixels tall
+- Output dimensions must be exactly 1200 pixels wide by 600 pixels tall`;
+
+if (avoidTextGeneration) {
+  prompt += `
+- CRITICAL: Do not add any text, logos, or other graphic elements that are not present in the original uploaded design. The output should only contain the design from the uploaded image. Faithfully reproduce the uploaded design without adding any new textual or graphical elements.`;
+}
+
+prompt += `
 
 Output: A single wide image (1200x600px) showing three identical ${canSize} cans at different rotation angles to display the full label design.`;
 

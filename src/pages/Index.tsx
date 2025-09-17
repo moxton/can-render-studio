@@ -32,10 +32,10 @@ const Index = () => {
     setGeneratedImage(null);
   };
 
-  const handleGenerate = async (file: File, canSize: '12oz' | '16oz') => {
+  const handleGenerate = async (file: File, options: GenerateOptions) => {
     try {
-      console.log('Starting generation with:', { fileName: file.name, canSize });
-      const result = await generateCanRender(file, canSize);
+      console.log('Starting generation with:', { fileName: file.name, options });
+      const result = await generateCanRender(file, options);
       console.log('Generation successful:', result);
       setGeneratedImage(result);
       return result;
