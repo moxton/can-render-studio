@@ -1,0 +1,54 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Can body with gradient -->
+  <rect x="10" y="4" width="12" height="24" rx="1" fill="url(#canGradient)" stroke="url(#strokeGradient)" stroke-width="0.5"/>
+  
+  <!-- Can top -->
+  <ellipse cx="16" cy="4" rx="6" ry="1.5" fill="url(#topGradient)"/>
+  
+  <!-- Can bottom -->
+  <ellipse cx="16" cy="28" rx="6" ry="1.5" fill="url(#bottomGradient)"/>
+  
+  <!-- Label design with sparkle -->
+  <rect x="11" y="10" width="10" height="12" rx="0.5" fill="url(#labelGradient)"/>
+  
+  <!-- Sparkle/AI indicator -->
+  <path d="M16 14 L17 16 L16 18 L15 16 Z" fill="white" opacity="0.9"/>
+  <path d="M14 16 L16 15 L18 16 L16 17 Z" fill="white" opacity="0.7"/>
+  
+  <!-- Highlight on can -->
+  <rect x="11" y="6" width="2" height="20" rx="1" fill="rgba(255,255,255,0.3)"/>
+  
+  <defs>
+    <!-- Can body gradient -->
+    <linearGradient id="canGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e2e8f0"/>
+      <stop offset="50%" style="stop-color:#f1f5f9"/>
+      <stop offset="100%" style="stop-color:#cbd5e1"/>
+    </linearGradient>
+    
+    <!-- Stroke gradient -->
+    <linearGradient id="strokeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#94a3b8"/>
+      <stop offset="100%" style="stop-color:#64748b"/>
+    </linearGradient>
+    
+    <!-- Top gradient -->
+    <radialGradient id="topGradient" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
+    </radialGradient>
+    
+    <!-- Bottom gradient -->
+    <radialGradient id="bottomGradient" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#cbd5e1"/>
+      <stop offset="100%" style="stop-color:#94a3b8"/>
+    </radialGradient>
+    
+    <!-- Label gradient matching your app colors -->
+    <linearGradient id="labelGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7"/>
+      <stop offset="50%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f97316"/>
+    </linearGradient>
+  </defs>
+</svg>

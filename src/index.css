@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fun, quirky design system for can render app */
+
+@layer base {
+  :root {
+    /* Fun gradient backgrounds */
+    --background: 220 30% 97%;
+    --foreground: 220 20% 15%;
+
+    /* Card styling */
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+
+    /* Popover styling */
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+
+    /* Primary - vibrant blue */
+    --primary: 220 90% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 220 90% 65%;
+
+    /* Secondary - soft purple */
+    --secondary: 280 60% 92%;
+    --secondary-foreground: 280 40% 25%;
+
+    /* Muted colors */
+    --muted: 220 20% 95%;
+    --muted-foreground: 220 15% 45%;
+
+    /* Accent - bright orange */
+    --accent: 25 95% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Success - mint green */
+    --success: 150 60% 50%;
+    --success-foreground: 0 0% 100%;
+
+    /* Destructive */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 220 25% 88%;
+    --input: 220 25% 88%;
+    --ring: 220 90% 55%;
+
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220, 90%, 55%), hsl(280, 90%, 65%));
+    --gradient-subtle: linear-gradient(135deg, hsl(220, 30%, 97%), hsl(280, 30%, 95%));
+    --gradient-accent: linear-gradient(135deg, hsl(25, 95%, 60%), hsl(45, 95%, 65%));
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -2px hsl(220 90% 55% / 0.15);
+    --shadow-glow: 0 0 30px hsl(220 90% 55% / 0.3);
+    --shadow-card: 0 2px 10px -1px hsl(220 20% 15% / 0.1);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 220 20% 90%;
+
+    --card: 220 25% 12%;
+    --card-foreground: 220 20% 90%;
+
+    --popover: 220 25% 12%;
+    --popover-foreground: 220 20% 90%;
+
+    --primary: 220 90% 65%;
+    --primary-foreground: 220 25% 8%;
+    --primary-glow: 220 90% 75%;
+
+    --secondary: 280 30% 15%;
+    --secondary-foreground: 280 30% 85%;
+
+    --muted: 220 20% 18%;
+    --muted-foreground: 220 15% 65%;
+
+    --accent: 25 95% 65%;
+    --accent-foreground: 220 25% 8%;
+
+    --success: 150 60% 55%;
+    --success-foreground: 220 25% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 220 25% 8%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 220 90% 65%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(220, 90%, 65%), hsl(280, 90%, 75%));
+    --gradient-subtle: linear-gradient(135deg, hsl(220, 25%, 8%), hsl(280, 25%, 12%));
+    --gradient-accent: linear-gradient(135deg, hsl(25, 95%, 65%), hsl(45, 95%, 70%));
+
+    --shadow-soft: 0 4px 20px -2px hsl(220 90% 65% / 0.2);
+    --shadow-glow: 0 0 30px hsl(220 90% 65% / 0.4);
+    --shadow-card: 0 2px 10px -1px hsl(0 0% 0% / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-slate-50 text-foreground font-sans antialiased;
+    min-height: 100vh;
+  }
+
+  /* Custom animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: var(--shadow-soft); }
+    50% { box-shadow: var(--shadow-glow); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.1), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+}
