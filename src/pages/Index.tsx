@@ -75,7 +75,7 @@ const Index = () => {
                 Can Render Studio
               </h1>
               <p className="text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed">
-                Upload any image or label and get a a profesisonal 3-angle can render in seconds. Perfect for marketing, prototyping, and presentations.
+                Upload any image or label and get a profesisonal 3-angle can render in seconds. Perfect for marketing, prototyping, and presentations.
               </p>
             </div>
 
