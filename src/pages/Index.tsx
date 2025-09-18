@@ -75,7 +75,7 @@ const Index = () => {
                 Can Render Studio
               </h1>
               <p className="text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed">
-                Upload your package design and get a professional can mockup in seconds. Perfect for presentations, marketing, and prototyping.
+                Upload any image or label and get a a profesisonal 3-angle can render in seconds. Perfect for marketing, prototyping, and presentations.
               </p>
             </div>
 
